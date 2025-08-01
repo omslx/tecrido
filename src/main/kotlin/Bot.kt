@@ -39,9 +39,9 @@ import kotlin.time.Duration.Companion.seconds
 
 
 // --- CONFIGURATION ---
-private const val BOT_TOKEN = "MTM3MTI1NjE1OTMyMjg5ODQzMg.GtdjNl.WDEBqNw3czgXMNdwKjbwZ2w7Ot359jghamfP4E" // TODO: Replace with your bot's token
-private const val MINECRAFT_SERVER_IP = "mc.gameup.ir" // TODO: Replace with your Minecraft server IP
-private val TARGET_CHANNEL_ID = Snowflake("1150183446140964904") // TODO: Replace with your channel ID
+private const val BOT_TOKEN = "" // TODO: Replace with your bot's token
+private const val MINECRAFT_SERVER_IP = "" // TODO: Replace with your Minecraft server IP
+private val TARGET_CHANNEL_ID = Snowflake("") // TODO: Replace with your channel ID
 
 // --- Data classes for parsing mcsrvstat.us API response ---
 @Serializable
