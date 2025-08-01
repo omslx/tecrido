@@ -1,34 +1,8 @@
 import dev.kord.*
-import dev.kord.common.entity.Snowflake
-import dev.kord.core.Kord
-import dev.kord.core.behavior.channel.createMessage
-import dev.kord.core.behavior.edit
-import dev.kord.core.entity.Message
-import dev.kord.core.entity.channel.TextChannel
-import dev.kord.core.event.gateway.ReadyEvent
-import dev.kord.core.on
-import dev.kord.gateway.Intent
-import dev.kord.gateway.PrivilegedIntent
-import dev.kord.rest.NamedFile
-import dev.kord.rest.builder.message.EmbedBuilder
-import dev.kord.rest.builder.message.embed
-import io.ktor.client.*
-import io.ktor.client.call.*
-import io.ktor.client.engine.cio.*
-import io.ktor.client.request.*
-import io.ktor.client.request.forms.*
-import io.ktor.utils.io.*
-import io.ktor.utils.io.core.*
-import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.count
-import kotlinx.coroutines.launch
-import kotlinx.serialization.Serializable
-import kotlinx.serialization.json.Json
-import java.awt.Color
-import java.awt.Font
-import java.awt.RenderingHints
-import java.awt.image.BufferedImage
+import io.ktor.*
+import kotlinx.coroutines.*
+import kotlinx.serialization.*
+import java.awt.*
 import java.io.ByteArrayInputStream
 import java.io.ByteArrayOutputStream
 import java.time.Instant
@@ -38,12 +12,12 @@ import kotlin.time.Duration.Companion.seconds
 
 
 
-// --- CONFIGURATION ---
+//CONFIGURATION
 private const val BOT_TOKEN = "" // TODO: Replace with your bot's token
 private const val MINECRAFT_SERVER_IP = "" // TODO: Replace with your Minecraft server IP
 private val TARGET_CHANNEL_ID = Snowflake("") // TODO: Replace with your channel ID
 
-// --- Data classes for parsing mcsrvstat.us API response ---
+//Data classes for parsing mcsrvstat.us API response ---
 @Serializable
 data class ServerStatus(
     val online: Boolean,
@@ -64,10 +38,10 @@ data class Players(
     val max: Int
 )
 
-// --- Helper for JSON parsing ---
+//Helper for JSON parsing
 private val json = Json { ignoreUnknownKeys = true }
 
-// --- HTTP Client ---
+//HTTP Client
 private val httpClient = HttpClient(CIO)
 
 /**
